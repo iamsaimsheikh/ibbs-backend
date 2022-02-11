@@ -20,11 +20,12 @@ app.use(bodyParser.urlencoded({extended:true}))
 //controller imports
 const user = require('./controllers/user_controller')
 const admin = require('./controllers/admin_controller')
+const order = require('./controllers/order_controller')
 
 //request routing
 user(app)
 admin(app)
-
+order(app)
 
 
 app.listen(PORT, () => {
