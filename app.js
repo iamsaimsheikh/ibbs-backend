@@ -1,6 +1,6 @@
 // library imports
 const express = require('express');
-// const cors = require('cors')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 
 // MongoDb Connection
@@ -15,8 +15,8 @@ const app = express();
 app.use(express.json())
 app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}))
-// app.use(cors)
-
+app.use(cors())
+ 
 //controller imports
 const user = require('./controllers/user_controller')
 const admin = require('./controllers/admin_controller')
@@ -28,7 +28,7 @@ admin(app)
 order(app)
 
 
-app.listen(PORT, () => {
+app.listen(PORT, () => { 
     console.log(`server is running at ${PORT}`)
 })
 
